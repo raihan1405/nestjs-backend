@@ -1,6 +1,6 @@
 //bisa dibilang ini adalah route
 
-import { Controller, Get,Query } from '@nestjs/common';
+import { Controller, Get,Query ,Param} from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { Product } from './schemas/product.schema';
 
@@ -16,5 +16,10 @@ export class ProductsController {
   @Get('search')
   async searchProducts(@Query('keyword') keyword: string): Promise<Product[]> {
     return this.productsService.searchProducts(keyword);
+  }
+
+  @Get(':id')
+  async getProductById(@Param('id') id: string): Promise<Product> {
+    return this.productsService.getProductById(id);
   }
 }

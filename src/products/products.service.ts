@@ -26,4 +26,17 @@ export class ProductsService {
     const regex = new RegExp(keyword, 'i'); // 'i' untuk case-insensitive
     return this.productModel.find({ name: regex }).exec();
   }
+
+  async getProductById(id: string): Promise<Product> {
+    try {
+      const product = await this.productModel.findById(id).exec();
+      if (!product) {
+        throw new Error('Product not found');
+      }
+      return product;
+    } catch (error) {
+      this.logger.error(`Failed to retrieve product with ID: ${id}`, error.stack);
+      throw new Error('Failed to retrieve product');
+    }
+  }
 }
