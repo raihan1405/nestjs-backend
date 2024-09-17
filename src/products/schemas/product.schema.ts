@@ -15,8 +15,8 @@ export class Product {
   @Prop({ type: String, default: "No discount found" })
   discount: string;
 
-  @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'Category', required: true }) // Reference to Category
-  category: Category;
+  @Prop({ type: String, default: "No category found" })
+  category: string;
 
   @Prop({ type: String, default: "-" })
   brand: string;
@@ -66,11 +66,6 @@ export class Product {
   @Prop({ required: true, default: "-" })
   description: string;
 
-  @Prop({ type: String, default: "-" })
-  imagePath: string; // Path or ID for the main product image
-
-  @Prop({ type: String, default: "-" })
-  bumnImagePath: string; // Path or ID for the BUMN image
 }
 
 export const ProductSchema = SchemaFactory.createForClass(Product);
