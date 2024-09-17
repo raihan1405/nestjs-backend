@@ -33,14 +33,35 @@ export class Product {
   @Prop({ required: true, default: "-" })
   seller: string;
 
+  @Prop({ type: String, default: "-" })
+  sentFrom: string; // Added sentFrom field
+
   @Prop({ type: String, default: "0" })
-  ratings: string;
+  ratingProduct: string; // Renamed from 'ratings' to 'ratingProduct'
+
+  @Prop({ type: String, default: "0 Terjual" })
+  soldQuantity: string; // Added soldQuantity field
+
+  @Prop({ type: String, default: "-" })
+  taxProduct: string; // Added taxProduct field
+
+  @Prop({ type: String, default: "Not available" })
+  stock: string; // Added stock field
 
   @Prop({ required: true, default: "-" })
   productImage: string;
 
   @Prop({ type: String, default: "No image found" })
-  bumnImage: string;  // This field represents the BUMN image or a placeholder text.
+  bumnImage: string;
+
+  @Prop({ type: String, default: "5" })
+  ratingStore: string; // Added ratingStore field
+
+  @Prop({ type: String, default: "Not available" })
+  totalSold: string; // Added totalSold field
+
+  @Prop({ type: String, default: "-" })
+  taxStore: string; // Added taxStore field
 
   @Prop({ required: true, default: "-" })
   description: string;
