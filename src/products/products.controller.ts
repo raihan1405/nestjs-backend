@@ -1,6 +1,4 @@
-//bisa dibilang ini adalah route
-
-import { Controller, Get,Query ,Param} from '@nestjs/common';
+import { Controller, Get, Query, Param } from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { Product } from './schemas/product.schema';
 
@@ -14,8 +12,12 @@ export class ProductsController {
   }
 
   @Get('search')
-  async searchProducts(@Query('keyword') keyword: string): Promise<Product[]> {
-    return this.productsService.searchProducts(keyword);
+  async searchProducts(
+    @Query('keyword') keyword: string,
+    @Query('page') page: number = 1, // Halaman default adalah 1
+    @Query('limit') limit: number = 50 // Limit default adalah 10 item per halaman
+  ): Promise<{ products: Product[], totalItems: number }> {
+    return this.productsService.searchProducts(keyword, page, limit);
   }
 
   @Get(':id')
