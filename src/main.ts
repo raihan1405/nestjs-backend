@@ -1,12 +1,13 @@
+// main.ts (NestJS entry point)
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // Mengaktifkan CORS dengan beberapa origin
+  // Enable CORS
   app.enableCors({
-    origin: ['http://localhost:3000', 'https://next-js-frontend-kappa.vercel.app/'], // Daftar origin yang diizinkan
+    origin: 'https://next-js-frontend-kappa.vercel.app', // Your frontend URL
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
   });
