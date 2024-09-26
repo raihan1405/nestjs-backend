@@ -6,7 +6,7 @@ async function bootstrap() {
 
   // Mengaktifkan CORS dengan opsi
   app.enableCors({
-    origin: 'http://localhost:3000', // Hanya mengizinkan permintaan dari origin ini
+    origin: 'https://next-js-frontend-kappa.vercel.app/', // Hanya mengizinkan permintaan dari origin ini
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
   });
